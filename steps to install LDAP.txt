@@ -1,0 +1,39 @@
+🛠️ What is LDAP?
+LDAP (Lightweight Directory Access Protocol) is a protocol used to store and manage user and device information in a centralized directory (like a phone book). It’s often used for user authentication in networks.
+
+✅ Step-by-Step Guide to Install and Configure LDAP Server
+🔹 Step 1: Update Your System
+Open the terminal and type:
+$sudo apt-get update
+This updates your package list so you get the latest software.
+
+🔹 Step 2: Install LDAP Server
+Run this command:
+$sudo apt-get install slapd ldap-utils
+slapd: The actual LDAP server.
+ldap-utils: Useful tools to manage LDAP (like search and test).
+
+🔹 Step 3: Configure the Server
+If it doesn’t ask questions during install, run:
+$sudo dpkg-reconfigure slapd
+You'll be asked some questions—here’s how to answer them:
+Question	Suggested Answer
+Omit OpenLDAP server configuration?	No
+DNS domain name?	For example: gptmcse.com (This will be part of your LDAP directory base)
+Organization name?	For example: gptm
+Administrator password?	Set a strong password and confirm it
+Database backend to use?	MDB (default and recommended)
+Remove the database when slapd is purged?	No
+Move old database?	Yes
+Allow LDAPv2 protocol?	No (it's outdated)
+✅ After this, your LDAP server is now installed and running!
+
+🔹 Step 4: Open LDAP Port in Firewall
+Allow access from other computers:
+$sudo ufw allow ldap
+🔹 Step 5: Test LDAP Server
+Test if your LDAP server is working:
+$ldapwhoami -x
+If you get this output:
+anonymous
+✅ That’s good! It means the server is online and responding to queries.
