@@ -1,0 +1,149 @@
+Steps to write and execute a script
+1 Open the terminal. Go to the directory where you want to create your script.
+2 Create a file with .sh extension use any of the editors like gedit, nano, vi etc.,
+3 Write the script in the file using an editor.
+4 Make the script executable with command chmod u+x <fileName>.
+5 Run the script using ./<fileName>
+
+Script 1: Biggest of Three Numbers using if-elif-fi
+
+echo Enter Three Numbers
+read a b c
+if (( $a>=$b && $a>=$c ))
+then
+    big=$a
+elif(( $b>=$a && $b>=$c ))  
+then
+    big=$b
+elif(( $c>=$a && $c>=$b ))
+then
+    big=$c
+fi
+echo Biggest among $a $b $c is $big
+
+
+Script 2: Read the contents of a file and display the same on Screen (Demo cat
+command)
+read -p "Enter file name : " filename
+while read line
+do
+    echo $line
+done < $filename
+
+
+Script 3: Count number of lines, words, and Characters in given file.
+echo Enter the filename
+read file
+c=`cat $file | wc -c`
+w=`cat $file | wc -w`
+l=`grep -c "." $file`
+echo Number of characters in $file is $c
+echo Number of words in $file is $w
+echo Number of lines in $file is $l
+
+
+Script 4: Write a shell script to perform string operations
+while :
+do
+echo " ******************************* "
+echo "Menu"
+echo "1.to find the length of string "
+echo "2.Concatenate Strings "
+echo "3. compare two strings"
+echo "4.exit "
+echo "Enter your choice: "
+read ch
+case $ch in
+1) echo "enter first string"
+read s1
+len=`expr length "$s1"`
+echo "Length of '$s1' is $len"
+;;
+2) echo "enter first string"
+read s1
+echo "enter second string"
+read s2
+echo "the concated string is" $s1$s2
+;;
+3) echo "enter first string"
+read s1
+echo "enter second string"
+read s2
+if [ $s1 = $s2 ]
+then
+echo "strings are equal"
+else
+echo "strings are not equal"
+fi
+;;
+4) echo "Exit..."
+exit
+;;
+esac
+done
+
+
+Script 5: Write a shell script to perform file operations
+while :
+do
+echo "Menu"
+echo "1.copy a file "
+echo "2.rename a file "
+echo "3.remove a file "
+echo "4.exit "
+echo "Enter your choice: "
+read ch
+case $ch in
+1) echo "enter file name to create a copy"
+read f1
+echo "enter the file name for a copy"
+read f2
+if [ -f $f1 ]
+then
+cp $f1 $f2
+echo "$f1 is copied to $f2"
+else
+echo " $f1 does not exit"
+fi
+;;
+2) echo "enter file name to rename"
+read f1
+echo "enter the new file name for a file"
+read f2
+if [ -f $f1 ]
+then
+mv $f1 $f2
+echo "$f1 is renamed to $f2"
+else
+echo " $f1 does not exit"
+fi
+;;
+3) echo "enter file name to be removed"
+read f1
+if [ -f $f1 ]
+then
+rm -i $f1
+echo "$f1 is removd"
+else
+echo " $f1 does not exit"
+fi
+;;
+4) echo "Exit..."
+exit
+;;
+esac
+done
+
+
+Script 5: Write a shell script to check memory status
+echo `date`
+mem_usage () {
+mem_free=`free -m | grep "Mem" | awk '{print $3}'`
+echo "memory space remaining : $mem_free MB"
+if [ $mem_free -lt 0 ]
+ then
+    echo "mem warning!!!"
+ else
+    echo "mem is free!!!"
+fi
+}
