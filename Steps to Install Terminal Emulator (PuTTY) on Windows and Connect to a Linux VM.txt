@@ -27,3 +27,16 @@ In the Host Name (or IP address) field, enter the IP address of your Linux VM.
 Keep the port as 22 (default for SSH).
 Click Open.
 A terminal window will open asking for your Linux VM username and password.
+
+step 5:commond to exiqute
+1: man [section-number] [command-name]
+2: ls
+
+ What Information Does It Provide?
+Each manual page contains:
+NAME: Command name
+SYNOPSIS: Command usage
+DESCRIPTION: What the command does
+OPTIONS: Flags you can use with the command
+EXAMPLES: How to use the command
+And more: EXIT STATUS, FILES, AUTHORS, SEE ALSO, etc.
