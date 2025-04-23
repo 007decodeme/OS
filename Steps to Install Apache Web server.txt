@@ -1,0 +1,42 @@
+Step 1: Install Apache
+Open the terminal and type the following commands:
+sudo apt update
+🔸 This updates your system’s software list.
+sudo apt install apache2
+🔸 This installs Apache on your system.
+
+🔥 Step 2: Adjust the Firewall (if needed)
+First, check what apps can be allowed through the firewall:
+sudo ufw app list
+🔹 You’ll see a list like this:
+Available applications:
+  Apache
+  Apache Full
+  Apache Secure
+Allow Apache to run through the firewall:
+sudo ufw allow 'Apache'
+🔸 This command tells the firewall to allow traffic to the web server.
+
+🧪 Step 3: Check if Apache is Running
+Check the status of Apache:
+sudo systemctl status apache2
+🔸 If it says "active (running)", your web server is working!
+If not, start or restart Apache:
+sudo systemctl start apache2
+or
+sudo systemctl restart apache2
+
+🌍 Step 4: Find Your System’s IP Address
+To access the web server, you need to know your system's IP address.
+Run one of these commands:
+ifconfig
+or
+hostname -I
+🔹 Example output:
+192.168.233.128
+
+🖥️ Step 5: Test the Web Server in Browser
+Open a browser (like Firefox or Chrome).
+Type this in the address bar:
+http://192.168.233.128
+✅ You should see the Apache default welcome page, which means the web server is working!
