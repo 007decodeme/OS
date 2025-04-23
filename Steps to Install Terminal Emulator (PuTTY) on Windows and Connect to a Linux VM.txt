@@ -1,0 +1,29 @@
+🔧 Step 1: Download and Install PuTTY
+Go to: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+Download the correct version of PuTTY for your Windows system.
+Install it by double-clicking the setup file and following the installation steps.
+
+🖥️ Step 2: Prepare the Linux Virtual Machine
+Start your Linux VM in VMware.
+Open the terminal in the VM by pressing: Ctrl + Alt + T
+To find the VM's IP address, run:
+ifconfig
+or
+ip address show
+
+
+📡 Step 3: Enable SSH on the Linux VM
+SSH (Secure Shell) allows secure connections to the Linux VM.
+Install the SSH server:
+sudo apt-get install openssh-server
+Start the SSH service:
+sudo systemctl start ssh
+(Optional) Check its status:
+sudo systemctl status ssh
+
+🔗 Step 4: Connect to the Linux VM from Windows using PuTTY
+Open PuTTY on Windows.
+In the Host Name (or IP address) field, enter the IP address of your Linux VM.
+Keep the port as 22 (default for SSH).
+Click Open.
+A terminal window will open asking for your Linux VM username and password.
