@@ -1,0 +1,25 @@
+📌 Example 1:
+$ mkdir cse
+📘 Meaning: Creates a new directory named cse.
+
+Example 2:
+$ mkdir cse ce me
+📘 Meaning: Creates three directories: cse, ce, and me.
+
+📌 Example 3:
+$ mkdir -v cse
+📘 Meaning: Creates a directory named cse and shows a confirmation message.
+
+📌 Example 4:
+$ mkdir -m 746 cse
+📘 Meaning: Creates the directory cse with custom permissions 746.
+
+📌 Example 5:
+$ rmdir cse
+📘 Meaning: Removes the empty directory cse.
+
+📌 Example 6:
+$ rmdir -v cse
+📘 Meaning: Removes cse and prints a message.
+
+write any 4 only
